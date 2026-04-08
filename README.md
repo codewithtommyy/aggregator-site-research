@@ -1,200 +1,119 @@
-\# Crypto News Aggregator Dataset
+# Crypto News Aggregator Dataset
 
+A curated dataset of **crypto news aggregator websites**.
 
+This repository focuses strictly on platforms that **aggregate news from multiple sources**, helping you track narratives, headlines, and market-moving events in one place.
 
-This repository contains a curated dataset of \*\*crypto news aggregator websites\*\*, focused strictly on platforms that aggregate news from multiple sources.
+---
 
+## What this dataset is
 
+Instead of collecting random crypto websites, this dataset is built to answer one question:
 
-\---
+> **Where can you see crypto news aggregated across multiple sources in real-time?**
 
+Each entry is selected based on its ability to:
 
+* Aggregate crypto news or headlines
+* Pull content from multiple publishers
+* Function as a discovery layer for news
 
-\## 📌 Scope
+---
 
+## How it works
 
+The dataset is built using a structured pipeline:
 
-This dataset includes only \*\*true news aggregators\*\*, defined as sites that:
+1. Start with seed aggregator sites
+2. Expand using AI-assisted discovery (Codex)
+3. Apply strict filtering:
 
+   * remove dashboards, analytics tools, and trading platforms
+   * remove single-source editorial sites
+4. Deduplicate and normalize
+5. Keep only **high-confidence news aggregators**
 
+This ensures the dataset prioritizes:
 
-\* Aggregate crypto news, headlines, or article links
+> **precision over volume**
 
-\* Pull content from multiple external publishers
+---
 
-\* Function as a discovery layer for crypto news
+## What is NOT included
 
+To keep the dataset clean, the following are excluded:
 
+* On-chain analytics platforms (Nansen, DeFiLlama)
+* Trading dashboards (DEX Screener, GeckoTerminal)
+* Social sentiment tools (LunarCrush, Santiment)
+* Single-source publishers (CoinDesk-style sites)
+* Exchange-owned news pages
 
-\---
+---
 
-
-
-\## ❌ Excluded
-
-
-
-The following types are intentionally excluded:
-
-
-
-\* On-chain analytics platforms (e.g. Nansen, DeFiLlama)
-
-\* Trading dashboards (DEX Screener, GeckoTerminal)
-
-\* Social sentiment tools (LunarCrush, Santiment)
-
-\* Single-source news sites (CoinDesk-style publishers)
-
-\* Exchange-owned news pages
-
-
-
-\---
-
-
-
-\## 📂 Structure
-
-
+## Repository structure
 
 input/
-
-seed\_sites.csv
-
-
+seed_sites.csv
 
 output/
-
-final\_news\_aggregators\_v3.csv
-
-news\_aggregators\_additional\_20.csv
-
-
+final_news_aggregators_v3.csv
+news_aggregators_additional_20.csv
 
 .gitignore
+README.md
 
+---
 
+## Dataset format
 
-\---
+Each row includes:
 
+* **website_name** → Platform name
+* **homepage_url** → Main URL
+* **category** → Aggregator type:
 
+  * news_aggregator
+  * headline_feed
+  * news_discovery
+  * hybrid_news_aggregator
+* **why_similar** → Why it qualifies
+* **confidence** → Quality level:
 
-\## 📊 Dataset Columns
+  * high
+  * medium
 
+---
 
+## How to use this dataset
 
-Each entry includes:
+You can use this dataset to:
 
+* Track crypto news across multiple sources
+* Discover narratives early
+* Find content ideas
+* Build news aggregation tools or bots
 
+A simple workflow:
 
-\* website\_name → Name of the platform
+1. Open top aggregator sites
+2. Scan headlines daily
+3. Identify repeating narratives
+4. Turn them into content or insights
 
-\* homepage\_url → Main URL
+---
 
-\* category → Type of aggregator:
+## Notes
 
+* This dataset is intentionally **small but clean**
+* Only sites that clearly match the definition are included
+* Borderline platforms are excluded on purpose
 
+---
 
-&#x20; \* news\_aggregator
+## Future improvements
 
-&#x20; \* headline\_feed
-
-&#x20; \* news\_discovery
-
-&#x20; \* hybrid\_news\_aggregator
-
-\* why\_similar → Explanation of aggregation behavior
-
-\* confidence → Quality score:
-
-
-
-&#x20; \* high
-
-&#x20; \* medium
-
-
-
-\---
-
-
-
-\## 🧠 Methodology
-
-
-
-1\. Start with seed aggregator sites
-
-2\. Expand using AI-assisted discovery (Codex)
-
-3\. Filter strictly for news aggregation behavior
-
-4\. Remove:
-
-
-
-&#x20;  \* duplicates
-
-&#x20;  \* non-news aggregators
-
-&#x20;  \* low-confidence entries
-
-5\. Normalize structure and categories
-
-
-
-\---
-
-
-
-\## 🎯 Use Cases
-
-
-
-This dataset can be used for:
-
-
-
-\* Crypto news tracking
-
-\* Content research and idea discovery
-
-\* SEO analysis (news sources)
-
-\* Building aggregation tools or bots
-
-
-
-\---
-
-
-
-\## ⚠️ Notes
-
-
-
-\* Dataset prioritizes precision over size
-
-\* Only sites that clearly match the definition are included
-
-\* Some borderline platforms are intentionally excluded
-
-
-
-\---
-
-
-
-\## 🔄 Future Improvements
-
-
-
-\* Expand with additional verified aggregators
-
-\* Add RSS/feed availability
-
-\* Categorize by use case (breaking news, narrative tracking, etc.)
-
-
-
+* Add more verified news aggregators
+* Include RSS/feed availability
+* Rank aggregators by usefulness
+* Build automated tracking pipelines
